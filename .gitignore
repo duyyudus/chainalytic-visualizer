@@ -109,3 +109,4 @@ _tmp/
 .chainalytic*/
 
 _*.py
+*.csv
