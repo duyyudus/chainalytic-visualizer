@@ -4,14 +4,10 @@ from setuptools import setup, find_packages
 # All dependences
 deps = {
     'chainalytic_viz': [
-        'ruamel.yaml',
-        'jsonrpcserver',
-        'jsonrpcclient[websockets]',
         'jsonrpcclient[requests]',
-        'websockets',
-        'aiohttp',
         'requests',
-        'chainalytic @ git+https://github.com/duyyudus/chainalytic-framework#egg=chainalytic'
+        'pandas',
+        'matplotlib',
     ],
     'test': [
         'pytest',
