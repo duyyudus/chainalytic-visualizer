@@ -1,2 +1,7 @@
 # chainalytic-visualizer
-Data visualization toolkit for chainalytic-framework
+
+### Data visualization toolkit for chainalytic-framework
+
+At this point, there is only one basic client that ask for data from Chainalytic Provider service and pass that data to a visualizer for further visualization activity.
+
+Just look at `main.py` to get a sense.
