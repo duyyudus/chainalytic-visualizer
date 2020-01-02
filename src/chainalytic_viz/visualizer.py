@@ -6,16 +6,15 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from . import client
+from .client import Client
 
 
 class Visualizer(object):
     FIRST_BH = 7597365
 
-    def __init__(self, endpoint: str):
+    def __init__(self, client: Client):
         super(Visualizer, self).__init__()
-        self.endpoint = endpoint
-        self.client = client.Client(endpoint)
+        self.client = client
         self.stake_history_data_csv = Path(os.getcwd(), 'stake_history.csv').as_posix()
 
     def fetch_stake_history_data(self, height: int):

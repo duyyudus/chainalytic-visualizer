@@ -5,9 +5,9 @@ ENDPOINT = '45.76.184.255:5530'  # production
 
 if __name__ == '__main__':
     c = client.Client(ENDPOINT)
-    v = visualizer.Visualizer(ENDPOINT)
+    v = visualizer.Visualizer(c)
 
-    check = 5
+    check = 0
 
     if check == 0:
         c.last_block_height('stake_history')
