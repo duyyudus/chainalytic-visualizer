@@ -1,13 +1,15 @@
 from chainalytic_viz import client, visualizer
 
 # ENDPOINT = 'localhost:5530'
-ENDPOINT = '45.76.184.255:5530'  # production
+# ENDPOINT = '45.76.184.255:5530'  # production
+ENDPOINT = '45.76.184.255:5531'  # production-dev
+# ENDPOINT = '35.240.229.245:5530'  # dev
 
 if __name__ == '__main__':
     c = client.Client(ENDPOINT)
     v = visualizer.Visualizer(c)
 
-    check = 0
+    check = 3
 
     if check == 0:
         c.last_block_height('stake_history')

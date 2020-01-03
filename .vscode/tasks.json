@@ -7,6 +7,9 @@
             "label": "Run Dev",
             "type": "shell",
             "command": "venv/bin/python main.py",
+            "windows": {
+                "command": ".\\venv\\Scripts\\python main.py"
+            },
             "problemMatcher": [],
             "group": {
                 "kind": "build",
