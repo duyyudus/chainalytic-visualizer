@@ -9,7 +9,7 @@ if __name__ == '__main__':
     c = client.Client(ENDPOINT)
     v = visualizer.Visualizer(c)
 
-    check = 3
+    check = 5
 
     if check == 0:
         c.last_block_height('stake_history')
@@ -22,4 +22,6 @@ if __name__ == '__main__':
     elif check == 4:
         c.latest_stake_top100()
     elif check == 5:
+        c.recent_stake_wallets()
+    elif check == 6:
         v.show_stake_history(1)

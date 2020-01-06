@@ -46,3 +46,10 @@ class Client(object):
             print(f'Height: {r["height"]}')
             for k, v in r['wallets'].items():
                 print(k, v)
+
+    def recent_stake_wallets(self, verbose=1):
+        r = self._call('recent_stake_wallets', {}, verbose=0)
+        if verbose:
+            print(f'Height: {r["height"]}')
+            for k, v in r['wallets'].items():
+                print(k, v)
