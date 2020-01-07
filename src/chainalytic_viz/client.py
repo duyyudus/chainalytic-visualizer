@@ -40,27 +40,28 @@ class Client(object):
     def latest_unstake_state(self, verbose=1):
         r = self._call('latest_unstake_state', {}, verbose=0)
         if verbose:
-            print(f'Height: {r["height"]}')
             for k, v in r['wallets'].items():
                 print(k, v)
+            print(f'Height: {r["height"]}')
 
     def latest_stake_top100(self, verbose=1):
         r = self._call('latest_stake_top100', {}, verbose=0)
         if verbose:
-            print(f'Height: {r["height"]}')
             for k, v in r['wallets'].items():
                 print(k, v)
+            print(f'Height: {r["height"]}')
 
     def recent_stake_wallets(self, verbose=1):
         r = self._call('recent_stake_wallets', {}, verbose=0)
         if verbose:
-            print(f'Height: {r["height"]}')
             for k, v in r['wallets'].items():
                 print(k, v)
+            print(f'Height: {r["height"]}')
 
     def abstention_stake(self, verbose=1):
         r = self._call('abstention_stake', {}, verbose=0)
         if verbose:
-            print(f'Height: {r["height"]}')
             for k, v in r['wallets'].items():
                 print(k, v)
+            print(f'Height: {r["height"]}')
+            print(f'Number of wallets: {len(r["wallets"])}')
