@@ -24,4 +24,6 @@ if __name__ == '__main__':
     elif check == 5:
         c.recent_stake_wallets()
     elif check == 6:
+        c.abstention_stake()
+    elif check == 7:
         v.show_stake_history(1)
