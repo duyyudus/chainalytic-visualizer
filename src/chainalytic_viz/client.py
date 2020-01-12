@@ -65,3 +65,11 @@ class Client(object):
                 print(k, v)
             print(f'Height: {r["height"]}')
             print(f'Number of wallets: {len(r["wallets"])}')
+
+    def funded_wallets(self, min_balance: str, verbose=1):
+        r = self._call('funded_wallets', {'min_balance': min_balance}, verbose=0)
+        if verbose:
+            for k, v in r['wallets'].items():
+                print(k, v)
+            print(f'Height: {r["height"]}')
+            print(f'Number of wallets: {r["total"]}')
