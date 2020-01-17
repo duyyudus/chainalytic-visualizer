@@ -66,8 +66,16 @@ class Client(object):
             print(f'Height: {r["height"]}')
             print(f'Number of wallets: {len(r["wallets"])}')
 
-    def funded_wallets(self, min_balance: str, verbose=1):
+    def funded_wallets(self, min_balance: float, verbose=1):
         r = self._call('funded_wallets', {'min_balance': min_balance}, verbose=0)
+        if verbose:
+            for k, v in r['wallets'].items():
+                print(k, v)
+            print(f'Height: {r["height"]}')
+            print(f'Number of wallets: {r["total"]}')
+
+    def passive_stake_wallets(self, max_inactive_duration: int, verbose=1):
+        r = self._call('passive_stake_wallets', {'max_inactive_duration': max_inactive_duration}, verbose=0)
         if verbose:
             for k, v in r['wallets'].items():
                 print(k, v)

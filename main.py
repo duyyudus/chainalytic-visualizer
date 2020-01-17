@@ -10,7 +10,7 @@ if __name__ == '__main__':
     c = client.Client(ENDPOINT)
     v = visualizer.Visualizer(c)
 
-    check = 6
+    check = 8
 
     if check == 0:
         c.last_block_height('stake_history')
@@ -29,5 +29,6 @@ if __name__ == '__main__':
     elif check == 7:
         c.funded_wallets(min_balance=1)
     elif check == 8:
+        c.passive_stake_wallets(max_inactive_duration=40000)
+    elif check == 9:
         v.show_stake_history(1)
-
