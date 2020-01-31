@@ -3,14 +3,15 @@ from chainalytic_viz import client, visualizer
 # ENDPOINT = 'localhost:5530'
 # ENDPOINT = '45.76.184.255:5530'  # app
 # ENDPOINT = '45.76.184.255:5531'  # app-dev
-ENDPOINT = '140.82.11.203:5531'  # production chainalytic-dev
+# ENDPOINT = '140.82.11.203:5531'  # production chainalytic-dev
+ENDPOINT = '140.82.11.203:5530'  # production chainalytic
 # ENDPOINT = '35.240.229.245:5530'  # dev
 
 if __name__ == '__main__':
     c = client.Client(ENDPOINT)
     v = visualizer.Visualizer(c)
 
-    check = 8
+    check = 9
 
     if check == 0:
         c.last_block_height('stake_history')
@@ -31,4 +32,5 @@ if __name__ == '__main__':
     elif check == 8:
         c.passive_stake_wallets(max_inactive_duration=40000)
     elif check == 9:
-        v.show_stake_history(1)
+        v.show_stake_history(from_bh=7841000, fetch=1)
+        # v.show_stake_history(from_bh=None, fetch=1)

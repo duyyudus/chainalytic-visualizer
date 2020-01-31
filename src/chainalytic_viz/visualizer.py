@@ -28,14 +28,16 @@ class Visualizer(object):
         d = datetime.fromtimestamp(t).strftime('%m-%d')
         return [height, ts, tus, tsw, tusw, d]
 
-    def show_stake_history(self, fetch: bool):
+    def show_stake_history(self, from_bh: int = None, to_bh: int = None, fetch: bool = 1):
         if fetch:
             latest_bh = self.client.last_block_height('stake_history')
+            from_bh = from_bh if from_bh else Visualizer.FIRST_BH
+            to_bh = to_bh if to_bh else latest_bh
+
             records = []
-            # step = int((latest_bh - FIRST_BH) / 20)
             step = 43200
             print(f'Step: {step}')
-            for bh in range(Visualizer.FIRST_BH, latest_bh + 1, step):
+            for bh in range(from_bh, to_bh + 1, step):
                 row = self.fetch_stake_history_data(bh)
                 records.append(row)
 
