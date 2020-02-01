@@ -11,7 +11,7 @@ if __name__ == '__main__':
     c = client.Client(ENDPOINT)
     v = visualizer.Visualizer(c)
 
-    check = 9
+    check = 10
 
     if check == 0:
         c.last_block_height('stake_history')
@@ -34,3 +34,5 @@ if __name__ == '__main__':
     elif check == 9:
         v.show_stake_history(from_bh=7841000, fetch=1)
         # v.show_stake_history(from_bh=None, fetch=1)
+    elif check == 10:
+        v.show_stake_top100_distribution(cap_stake_amount=10000000, fetch=1)

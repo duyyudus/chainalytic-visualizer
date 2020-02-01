@@ -43,6 +43,7 @@ class Client(object):
             for k, v in r['wallets'].items():
                 print(k, v)
             print(f'Height: {r["height"]}')
+        return r
 
     def latest_stake_top100(self, verbose=1):
         r = self._call('latest_stake_top100', {}, verbose=0)
@@ -50,6 +51,7 @@ class Client(object):
             for k, v in r['wallets'].items():
                 print(k, v)
             print(f'Height: {r["height"]}')
+        return r
 
     def recent_stake_wallets(self, verbose=1):
         r = self._call('recent_stake_wallets', {}, verbose=0)
@@ -57,6 +59,7 @@ class Client(object):
             for k, v in r['wallets'].items():
                 print(k, v)
             print(f'Height: {r["height"]}')
+        return r
 
     def abstention_stake(self, verbose=1):
         r = self._call('abstention_stake', {}, verbose=0)
@@ -65,6 +68,7 @@ class Client(object):
                 print(k, v)
             print(f'Height: {r["height"]}')
             print(f'Number of wallets: {len(r["wallets"])}')
+        return r
 
     def funded_wallets(self, min_balance: float, verbose=1):
         r = self._call('funded_wallets', {'min_balance': min_balance}, verbose=0)
@@ -73,11 +77,15 @@ class Client(object):
                 print(k, v)
             print(f'Height: {r["height"]}')
             print(f'Number of wallets: {r["total"]}')
+        return r
 
     def passive_stake_wallets(self, max_inactive_duration: int, verbose=1):
-        r = self._call('passive_stake_wallets', {'max_inactive_duration': max_inactive_duration}, verbose=0)
+        r = self._call(
+            'passive_stake_wallets', {'max_inactive_duration': max_inactive_duration}, verbose=0
+        )
         if verbose:
             for k, v in r['wallets'].items():
                 print(k, v)
             print(f'Height: {r["height"]}')
             print(f'Number of wallets: {r["total"]}')
+        return r
