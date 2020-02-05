@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "venv/bin/python ${file}",
             "windows": {
-                "command": ".\\venv\\Scripts\\python ${file}}"
+                "command": ".\\venv\\Scripts\\python ${file}"
             },
             "problemMatcher": [],
             "group": {

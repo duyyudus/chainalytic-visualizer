@@ -38,9 +38,19 @@ class Client(object):
         return self._call('get_staking_info', {'height': height})
 
     def latest_unstake_state(self, verbose=1):
+        """Sorted by unstaking amount."""
+
         r = self._call('latest_unstake_state', {}, verbose=0)
+
+        wallets = {
+            k: v
+            for k, v in sorted(
+                r['wallets'].items(), key=lambda item: float(item[1].split(':')[1]), reverse=1,
+            )
+        }
+
         if verbose:
-            for k, v in r['wallets'].items():
+            for k, v in wallets.items():
                 print(k, v)
             print(f'Height: {r["height"]}')
         return r
